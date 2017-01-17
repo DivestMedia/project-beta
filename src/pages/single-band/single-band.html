@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ b_data.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<img [src]="b_data.thumb">
+	<h2 [innerHTML]="b_data.name"></h2>
+	<small><ion-icon name="headset"></ion-icon> Genre: {{ b_data.genre }}</small>
+	<p [innerHTML]="b_data.description"></p>
+</ion-content>

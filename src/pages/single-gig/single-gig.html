@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ g_data.title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<img [src]="g_data.thumb">
+	<h2 [innerHTML]="g_data.title"></h2>
+	<small><ion-icon name="calendar"></ion-icon> {{ g_data.date }} @ {{ g_data.time }}</small>
+	<small><ion-icon name="pin"></ion-icon> {{ g_data.venue }}, {{ g_data.city }}</small>
+	<small><ion-icon name="mic"></ion-icon> {{ g_data.bands }}</small>
+	<p [innerHTML]="g_data.description"></p>
+</ion-content>

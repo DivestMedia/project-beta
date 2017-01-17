@@ -1,0 +1,22 @@
+page-bands {
+	.scroll-content{
+		padding:0 !important;
+	}
+	.filter_container{
+
+		button{
+			margin: 0;
+			&.active{
+				background: #387ef5;
+	    		color: #fff;
+	    		&:hover{
+	    			color: #000;
+	    		}
+			}
+		}
+		ion-label{
+			margin: 0;
+			text-align: center;
+		}
+	}
+}
