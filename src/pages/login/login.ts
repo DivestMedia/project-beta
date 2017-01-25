@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { MenuController, NavController, AlertController, LoadingController } from 'ionic-angular';
 import { FacebookAuth, Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { HomePage } from '../home/home';
 
@@ -19,7 +19,7 @@ export class LoginPage {
   response = [];
 
 
-  constructor(public navCtrl: NavController, public facebookAuth: FacebookAuth, public auth:Auth, public user: User, public alertCtrl: AlertController, public loadingCtrl:LoadingController, public http: Http) {
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController, public facebookAuth: FacebookAuth, public auth:Auth, public user: User, public alertCtrl: AlertController, public loadingCtrl:LoadingController, public http: Http) {
     this.http = http;
   }
 
@@ -90,6 +90,7 @@ export class LoginPage {
 		 			this.auth.signup(details).then(() => {
 				        console.log('ok signup');
 				        this.auth.login('basic', {'email':details.email, 'password':details.password}).then(() => {
+				        	this.menuCtrl.enable(true, 'loggedInMenu');
 				          loader.dismissAll();
 				          this.navCtrl.setRoot(HomePage);
 				        });
@@ -101,6 +102,7 @@ export class LoginPage {
 				          console.log(e);
 				          if(e === 'conflict_email'){
 				          		this.auth.login('basic', {'email':details.email, 'password':details.password}).then(() => {
+				          			this.menuCtrl.enable(true, 'loggedInMenu');
 						          this.navCtrl.setRoot(HomePage);
 						        });
 				          		errors = '';
@@ -184,6 +186,7 @@ export class LoginPage {
 	     		var usr_email = response['details'].email;
      		  this.auth.login('basic', {'email':usr_email, 'password':this.password}).then(() => {
 		        console.log('ok i guess?');
+		        this.menuCtrl.enable(true, 'loggedInMenu');
 		        loader.dismissAll();
 		        this.navCtrl.setRoot(HomePage);        
 		      }, (err) => {
@@ -192,6 +195,7 @@ export class LoginPage {
 		      		this.auth.signup(details).then(() => {
 				        console.log('ok signup');
 				        this.auth.login('basic', {'email':details.email, 'password':details.password}).then(() => {
+			        		this.menuCtrl.enable(true, 'loggedInMenu');
 				          loader.dismissAll();
 				          this.navCtrl.setRoot(HomePage);
 				        });
@@ -299,6 +303,7 @@ export class LoginPage {
 	 			this.auth.signup(details).then(() => {
 			        console.log('ok signup');
 			        this.auth.login('basic', {'email':details.email, 'password':details.password}).then(() => {
+			        	this.menuCtrl.enable(true, 'loggedInMenu');
 			          loader.dismissAll();
 			          this.navCtrl.setRoot(HomePage);
 			        });

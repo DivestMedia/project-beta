@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle icon-only>
       <ion-icon name='menu'></ion-icon>
     </button>
@@ -9,40 +9,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu [content]="main_nav">
-  <ion-header class="header header-md">
-    <ion-toolbar class="toolbar toolbar-md toolbar-md-primary statusbar-padding" color="primary">
-      <div class="toolbar-background toolbar-background-md"></div>
-      <div class="toolbar-content toolbar-content-md">
-        <ion-title class="title title-md">
-          <div class="toolbar-title toolbar-title-md">Menu</div>
-        </ion-title>
-      </div>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <button ion-item menuClose (click)="goToGigs()">
-        Gigs
-      </button>
-      <button ion-item menuClose (click)="goToBands()">
-        Bands
-      </button>
-      <button ion-item menuClose (click)="goToNews()">
-        News
-      </button>
-      <button ion-item (click)="logout()">
-        Logout
-        <ion-icon end name="exit"></ion-icon>
-      </button>
-    </ion-list>
-  </ion-content>
-</ion-menu>
 
-<ion-nav #main_nav [root]="rootPage"></ion-nav>
 
 <ion-content padding>
     <h2>Welcome back, {{ cur_username }}</h2>
 </ion-content>
-
-

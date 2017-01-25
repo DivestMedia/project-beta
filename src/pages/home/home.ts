@@ -14,7 +14,6 @@ import { LocalStorageService } from 'angular-2-local-storage';
 })
 export class HomePage {
 	cur_username:string = '';
-
   constructor(public viewCtrl: ViewController, public appCtrl: App, public menuCtrl: MenuController, public navCtrl: NavController, public facebookAuth: FacebookAuth, public user:User, public auth:Auth , private localStorageService: LocalStorageService) {
   	this.localStorageService = localStorageService;
     if(this.user.social && this.user.social.facebook){
@@ -24,27 +23,6 @@ export class HomePage {
     }
     
   }
-
-   	goToGigs() {
-	    this.appCtrl.getRootNav().push(GigsPage);
-  	}
-
-   	goToBands() {
-	    this.appCtrl.getRootNav().push(BandsPage);
-  	}
-
- 	goToNews() {
-	    this.appCtrl.getRootNav().push(NewsPage);
-  	}
-
-  logout() {
-  	this.localStorageService.clearAll();
-  	if(this.user.social && this.user.social.facebook) {
-     	this.facebookAuth.logout();
-   	} else {
-	    this.auth.logout();
-	}
-    this.navCtrl.setRoot(LoginPage);
-  }
+   
 
 }
