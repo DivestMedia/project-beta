@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { App, NavController, AlertController, LoadingController } from 'ionic-angular';
 
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 
-import { LocalStorageService } from 'angular-2-local-storage';
+// import { LocalStorageService } from 'angular-2-local-storage';
 
 import { SingleBandPage } from '../single-band/single-band';
 
@@ -97,7 +97,7 @@ export class BandsPage {
 
  	doInfinite(infiniteScroll) {
 	    this.cur_page = this.cur_page+1;
-	    let key = 'news_p_'+this.cur_page;
+	    // let key = 'news_p_'+this.cur_page;
   	
 		let response$ =  this.http.get(this.link+this.cur_page+'/'+this.cur_limit+'/').map((res) => res.json());
 		response$.subscribe(

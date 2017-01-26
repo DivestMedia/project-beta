@@ -1,10 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { App, NavController, MenuController, ViewController } from 'ionic-angular';
 import { FacebookAuth, Auth, User } from '@ionic/cloud-angular';
-import { LoginPage } from '../login/login';
-import { NewsPage } from '../news/news';
-import { BandsPage } from '../bands/bands';
-import { GigsPage } from '../gigs/gigs';
+// import { LoginPage } from '../login/login';
+// import { NewsPage } from '../news/news';
+// import { BandsPage } from '../bands/bands';
+// import { GigsPage } from '../gigs/gigs';
 
 import { LocalStorageService } from 'angular-2-local-storage';
 

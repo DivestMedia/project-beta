@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { Platform, App, Nav, MenuController, ViewController } from 'ionic-angular';
+import { Platform, App, Nav, MenuController } from 'ionic-angular';
 import { FacebookAuth, Auth, User } from '@ionic/cloud-angular';
 import { LocalStorageService } from 'angular-2-local-storage';
 

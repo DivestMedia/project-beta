@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { App, NavController, AlertController, LoadingController } from 'ionic-angular';
 
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 
 import { NewsServices } from '../../providers/news-services';
 
@@ -95,7 +95,7 @@ export class NewsPage {
 
   doRefresh(refresher) {
   	this.cur_page = 1;
-    const response$ = this.NewsSrvc.getNews(this.link,this.cur_page);
+    // const response$ = this.NewsSrvc.getNews(this.link,this.cur_page);
 
  	let key = 'news_p_'+this.cur_page;
 	if(this.localStorageService.isSupported) {

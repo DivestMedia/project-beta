@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { App, NavController, AlertController, LoadingController, NavParams } from 'ionic-angular';
 
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 
 import { LocalStorageService } from 'angular-2-local-storage';
 

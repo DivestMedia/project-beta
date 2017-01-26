@@ -29,7 +29,11 @@
 	<ion-list *ngIf="show_venues">
 		<ion-item *ngFor="let venue of venues">
 			<h2 [innerHTML]="venue.name"></h2>
-			<!-- <small><ion-icon name="pin"></ion-icon> Total venues: {{ venue.count }}</small> -->
+			<small>
+				<span class="fa fa-fw fa-bar-chart"></span> 
+				Upcoming <ion-badge item-right>{{ venue.gigs.upcoming.length }}</ion-badge> 
+				Gigs Held <ion-badge item-right>{{ venue.gigs.past_event.length }}</ion-badge>
+			</small>
 			<button ion-button clear item-right (click)="getVenueDetails(venue)">View</button>
 		</ion-item>
 	</ion-list>
