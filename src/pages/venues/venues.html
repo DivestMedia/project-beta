@@ -10,18 +10,27 @@
   	<button ion-button menuToggle icon-only>
       <ion-icon name='menu'></ion-icon>
     </button>
-    <ion-title>venues</ion-title>
+    <ion-title *ngIf="show_city">Venues</ion-title>
+    <ion-title *ngIf="show_venues">{{ city }}</ion-title>
+    <ion-title *ngIf="show_venue">{{ venue }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-	<ion-list>
+	<ion-list *ngIf="show_city">
 		<ion-item *ngFor="let vcity of venue_cities">
 			<h2 [innerHTML]="vcity.name"></h2>
 			<small><ion-icon name="pin"></ion-icon> Total venues: {{ vcity.count }}</small>
-			<button ion-button clear item-right (click)="getVenues(vcity.term_id)">View</button>
+			<button ion-button clear item-right (click)="getVenues(vcity.term_id,vcity.name)">View</button>
+		</ion-item>
+	</ion-list>
+	<ion-list *ngIf="show_venues">
+		<ion-item *ngFor="let venue of venues">
+			<h2 [innerHTML]="venue.name"></h2>
+			<!-- <small><ion-icon name="pin"></ion-icon> Total venues: {{ venue.count }}</small> -->
+			<button ion-button clear item-right (click)="getVenueDetails(venue)">View</button>
 		</ion-item>
 	</ion-list>
 </ion-content>
