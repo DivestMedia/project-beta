@@ -11,6 +11,7 @@ import { NewsPage } from '../pages/news/news';
 import { BandsPage } from '../pages/bands/bands';
 import { TabsPage } from '../pages/tabs/tabs';
 import { VenuesPage } from '../pages/venues/venues';
+import { BookmarktabsPage } from '../pages/bookmarktabs/bookmarktabs';
 
 
 export interface PageInterface {
@@ -34,6 +35,7 @@ export class MyApp {
     { title: 'Bands', tabComponent: BandsPage, index: 2, icon: 'microphone' },
     { title: 'News', tabComponent: NewsPage, index: 3, icon: 'paper' },
     { title: 'Venues', tabComponent: VenuesPage, index: 4, icon: 'pin' },
+    { title: 'Bookmarks', tabComponent: BookmarktabsPage, index: 5, icon: 'bookmark' },
   ];
 
   constructor(platform: Platform, public appCtrl: App, public menuCtrl: MenuController, public facebookAuth: FacebookAuth, public user:User, public auth:Auth , private localStorageService: LocalStorageService) {

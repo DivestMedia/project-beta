@@ -15,6 +15,8 @@ import { SingleBandPage } from '../pages/single-band/single-band';
 import { GigsPage } from '../pages/gigs/gigs';
 import { SingleGigPage } from '../pages/single-gig/single-gig';
 import { VenuesPage } from '../pages/venues/venues';
+import { BookmarksPage } from '../pages/bookmarks/bookmarks';
+import { BookmarktabsPage } from '../pages/bookmarktabs/bookmarktabs';
 
 // Services
 import { NewsServices } from '../providers/news-services';
@@ -41,6 +43,8 @@ const cloudSettings: CloudSettings = {
     SingleGigPage,
     TabsPage,
     VenuesPage,
+    BookmarksPage,
+    BookmarktabsPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -63,6 +67,8 @@ const cloudSettings: CloudSettings = {
     SingleGigPage,
     TabsPage,
     VenuesPage,
+    BookmarksPage,
+    BookmarktabsPage,
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},NewsServices]
 })

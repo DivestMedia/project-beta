@@ -1,0 +1,29 @@
+<!--
+  Generated template for the Bookmarks page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Bookmarks</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-item *ngFor="let band of bands">
+		<ion-thumbnail item-left>
+			<img [src]="band.thumb">
+		</ion-thumbnail>
+		<h2 [innerHTML]="band.name" (click)="goToSingleBand(band.id)"></h2>
+		<small><ion-icon name="headset"></ion-icon> Genre: {{ band.genre }}</small>
+		<small><ion-icon name="musical-notes"></ion-icon> Total Gigs: {{ band.total_gigs }}</small>
+		<button ion-button clear item-right (click)="goToSingleBand(band.id)">View</button>
+	</ion-item>
+</ion-content>

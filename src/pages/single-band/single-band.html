@@ -10,4 +10,6 @@
 	<h2 [innerHTML]="b_data.name"></h2>
 	<small><ion-icon name="headset"></ion-icon> Genre: {{ b_data.genre }}</small>
 	<p [innerHTML]="b_data.description"></p>
+	<button ion-button color="danger" (click)="bandBookmark(b_data)" *ngIf="!isBookmarked"><span class="fa fa-fw fa-heart-o"></span></button>
+	<button ion-button color="danger" *ngIf="isBookmarked"><span class="fa fa-fw fa-heart"></span> Bookmarked</button>
 </ion-content>
