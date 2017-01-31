@@ -12,4 +12,6 @@
 	<small><ion-icon name="pin"></ion-icon> {{ g_data.venue }}, {{ g_data.city }}</small>
 	<small><ion-icon name="mic"></ion-icon> {{ g_data.bands }}</small>
 	<p [innerHTML]="g_data.description"></p>
+	<button ion-button color="danger" (click)="gigBookmark(g_data)" *ngIf="!isBookmarked"><span class="fa fa-fw fa-heart-o"></span></button>
+	<button ion-button color="danger" (click)="gigrmvBookmark(g_data.id)" *ngIf="isBookmarked"><span class="fa fa-fw fa-heart"></span> Bookmarked</button>
 </ion-content>

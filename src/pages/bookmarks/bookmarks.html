@@ -17,6 +17,7 @@
 
 
 <ion-content padding>
+<ion-list>
 	<ion-item *ngFor="let band of bands">
 		<ion-thumbnail item-left>
 			<img [src]="band.thumb">
@@ -26,4 +27,17 @@
 		<small><ion-icon name="musical-notes"></ion-icon> Total Gigs: {{ band.total_gigs }}</small>
 		<button ion-button clear item-right (click)="goToSingleBand(band.id)">View</button>
 	</ion-item>
+	</ion-list>
+	<ion-list>
+		<ion-item *ngFor="let gig of gigs">
+			<ion-thumbnail item-left>
+				<img [src]="gig.thumb">
+			</ion-thumbnail>
+			<h2 [innerHTML]="gig.title" (click)="goToSingleGig(gig.id)"></h2>
+			<small><ion-icon name="calendar"></ion-icon> {{ gig.date_before }}</small>
+			<small><ion-icon name="pin"></ion-icon> {{ gig.venue }}</small>
+			<small><ion-icon name="mic"></ion-icon> {{ gig.bands }}</small>
+			<button ion-button clear item-right (click)="goToSingleGig(gig.id)">View</button>
+		</ion-item>
+	</ion-list>
 </ion-content>

@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController, LoadingController } from 'io
 
 import { Http } from '@angular/http';
 
+import { LocalStorageService } from 'angular-2-local-storage';
 /*
   Generated class for the SingleGig page.
 
@@ -16,8 +17,10 @@ import { Http } from '@angular/http';
 export class SingleGigPage {
 	public link = 'http://www.gigsmanila.com/api/gig/profile/';
 	public g_data = [];
-
-	constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public loadingCtrl:LoadingController, public alertCtrl: AlertController) {
+	public  key = 'gigsbookmark';
+	public isBookmarked;
+	constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public loadingCtrl:LoadingController, public alertCtrl: AlertController, public localStorageService: LocalStorageService) {
+		this.localStorageService = localStorageService;
 		let gigID = navParams.get('gigID');
 		if(typeof gigID != 'undefined'){
 	  		console.log(gigID);
@@ -32,6 +35,18 @@ export class SingleGigPage {
 				response => {
 					console.log(response);
 					this.g_data = response;
+					let t_bdtails = [];
+					var cur_bookmark = this.localStorageService.get(this.key);
+					var exist = false;
+					if(cur_bookmark!=null){
+						t_bdtails = Object.keys(cur_bookmark).map(key => cur_bookmark[key]);
+						t_bdtails.forEach(function(item, index){
+							if(response.id==item.id)
+								exist = true;
+						});
+					}
+					this.isBookmarked = exist;
+					console.log(this.isBookmarked);
 					loader.dismissAll();
 				}, error => {
 					loader.dismissAll();
@@ -44,6 +59,45 @@ export class SingleGigPage {
 				}
 			);
 	  	}
+	}
+
+	gigrmvBookmark(gigid){
+		let t_bdtails = [];
+		let f_bdtails = [];
+		var cur_bookmark = this.localStorageService.get(this.key);
+			var exist = 0;
+			if(cur_bookmark!=null){
+				t_bdtails = Object.keys(cur_bookmark).map(key => cur_bookmark[key]);
+				t_bdtails.forEach(function(item, index){
+					if(gigid!=item.id)
+						f_bdtails.push(item);
+				});
+			}
+			this.localStorageService.set(this.key, f_bdtails);
+				this.isBookmarked = false;
+	}
+
+	gigBookmark(gigdtails){
+		if(this.localStorageService.isSupported) {
+			
+			let t_bdtails = [];
+			var cur_bookmark = this.localStorageService.get(this.key);
+			var exist = 0;
+			if(cur_bookmark!=null){
+				t_bdtails = Object.keys(cur_bookmark).map(key => cur_bookmark[key]);
+				t_bdtails.forEach(function(item, index){
+					if(gigdtails.id==item.id)
+						exist = 1;
+				});
+			}
+			if(exist==0){
+				t_bdtails.push(gigdtails);
+
+				this.localStorageService.set(this.key, t_bdtails);
+				this.isBookmarked = true;
+			}
+			console.log(t_bdtails);
+		}
 	}
 
 }

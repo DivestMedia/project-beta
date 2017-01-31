@@ -62,7 +62,21 @@ export class SingleBandPage {
 			);
 	  	}
 	}
-
+	bandrmvBookmark(bandid){
+		let t_bdtails = [];
+		let f_bdtails = [];
+		var cur_bookmark = this.localStorageService.get(this.key);
+			var exist = 0;
+			if(cur_bookmark!=null){
+				t_bdtails = Object.keys(cur_bookmark).map(key => cur_bookmark[key]);
+				t_bdtails.forEach(function(item, index){
+					if(bandid!=item.id)
+						f_bdtails.push(item);
+				});
+			}
+			this.localStorageService.set(this.key, f_bdtails);
+				this.isBookmarked = false;
+	}
 	bandBookmark(bdtails){
 		if(this.localStorageService.isSupported) {
 			
